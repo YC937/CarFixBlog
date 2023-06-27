@@ -1,1 +1,8 @@
-<h1> This is homepage </h1>
+{{#each posts}}
+<div class="post">
+    <h2>{{title}}<h2>
+        <img src="{{}}">
+        <p>Introducing our Travel Site!</p>
+        <a href="/post{{homepage}}">Read More</a>
+</div>
+{{/each}}
