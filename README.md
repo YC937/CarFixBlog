@@ -2,7 +2,7 @@
 
 This is Coding Bootcamp Project 2 by Group 8.
 
-Requirements
+# Requirements
 
 * Use Node.js and Express.js to create a RESTful API.
 
