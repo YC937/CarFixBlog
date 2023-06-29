@@ -36,5 +36,5 @@ app.post('/profile', upload.single('image'), (req, res) => {
 })
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening: http://127.0.0.1:' +PORT));
+  app.listen(PORT, () => console.log('Now listening: http://127.0.0.1:' + PORT));
 });
