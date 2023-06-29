@@ -1,0 +1,33 @@
+<section class="section my-4">
+    <div class="container">
+        <h1> File Uploader </h1>
+        <p class="subtitle"> Upload Images to the <strong> Server </strong></p>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <form action="/profile" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-8">
+                    <input type="file" class="form-control" name="image" id="formFile" multiple>
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn btn-warning" value="Upload Images">
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>   
+</section>
+
+{{!-- images --}}
+
+{{!-- <section class="mt-5">
+    <div class="row">
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-image-top" class="img-fluid" alt="..">
+            </div>
+        </div>
+    </div>
+</section> --}}

@@ -7,7 +7,9 @@ router.get('/', async (req, res) => {
         const dbUserData = await User.findAll({
             attribute: {exclude:['password']}, 
         })
+    } catch (err) {
+        res.status(500).json(err);
     }
-})
+});
 
 module.export = router;
