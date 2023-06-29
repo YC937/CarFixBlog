@@ -19,14 +19,14 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_id: {
-            types: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
+        // //user_id: {
+        //     types: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references: {
+        //         model: 'user',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
         sequelize,
