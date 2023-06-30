@@ -97,6 +97,7 @@ router.post('/logIn', async (req, res) => {
     }
 });
 
+
 router.post('/logout', async(req, res) => {
     try {
         if(req.session.loggedIn) {
@@ -110,5 +111,6 @@ router.post('/logout', async(req, res) => {
         res.status(400).end();
     }
 });
+
 
 module.export = router;
