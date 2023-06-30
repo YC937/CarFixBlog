@@ -11,8 +11,6 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
-<<<<<<< HEAD
-=======
 
 router.get('/:id', async (req, res) => {
     try {
@@ -98,6 +96,5 @@ router.post('/logIn', async (req, res) => {
         res.status(500).json(err);
     }
 });
->>>>>>> b682ce8597963378e7340607695b456c36212f9c
 
 module.export = router;
