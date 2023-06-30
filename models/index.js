@@ -4,7 +4,14 @@ const Comment = require('../models/comment');
 
 User.hasMany(Post, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+});
+
+User.hasMany(Image, {
+  foreignKey: 'user_id',
+});
+
+Post.hasMany(Image, {
+  foreignKey: 'user_id',
 });
 
 Post.hasMany(Comment, {
@@ -17,6 +24,14 @@ User.hasMany(Comment, {
 
 Post.belongsTo(User, {
   foreignKey: 'user_id'
+});
+
+Image.belongsTo(Post, {
+  foreignKey: 'post_id',
+});
+
+Image.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
 Comment.belongsTo(Post, {
