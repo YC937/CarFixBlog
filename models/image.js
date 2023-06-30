@@ -11,7 +11,7 @@ Image.init ({
         primaryKey: true,
         autoIncrement: true,
     },
-    name: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -41,4 +41,6 @@ Image.init ({
         underscored: true,
         modelName: 'image',
 }
-)
+);
+
+module.exports = Image;
