@@ -41,4 +41,6 @@ Image.init ({
         underscored: true,
         modelName: 'image',
 }
-)
+);
+
+module.exports = Image;
