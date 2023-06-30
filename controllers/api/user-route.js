@@ -8,6 +8,6 @@ router.get('/', async (req, res) => {
             attribute: {exclude:['password']}, 
         })
     }
-})
+});
 
 module.export = router;
