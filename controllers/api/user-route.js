@@ -97,4 +97,20 @@ router.post('/logIn', async (req, res) => {
     }
 });
 
+
+router.post('/logout', async(req, res) => {
+    try {
+        if(req.session.loggedIn) {
+            const dbUserData = await req.session.destroy(() => {
+                res.status(204).end();
+            })
+        } else{
+            res.status(404).end();
+        }
+    } catch {
+        res.status(400).end();
+    }
+});
+
+
 module.export = router;
