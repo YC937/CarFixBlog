@@ -97,7 +97,6 @@ router.post('/logIn', async (req, res) => {
     }
 });
 
-
 router.post('/logout', async(req, res) => {
     try {
         if(req.session.loggedIn) {
