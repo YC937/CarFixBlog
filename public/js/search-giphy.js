@@ -8,5 +8,5 @@ searchForm.addEventListener('submit', (event) => {
 
     const searchTerm = searchInput.value.replace(" ", "+");
 
-    window.location.href = `/giphySearch/${searchTerm}`;
+    window.location.href = `/homepage/${searchTerm}`;
 })

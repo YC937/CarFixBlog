@@ -11,28 +11,53 @@ Image.init ({
         primaryKey: true,
         autoIncrement: true,
     },
-    title: {
+    originalname: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    img: {
-        type: DataTypes.BLOB,
+    size: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+    },
+    mimetype: {
+        type: DataTypes.STRING,
         allowNull: false,
     },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: "user",
-            key: "id",
-        },
+    destination: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
-    post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: "post",
-            key: "id",
-        },
+    filename: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
+    path: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    encoding: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+
+    // img: {
+    //     type: DataTypes.BLOB,
+    //     allowNull: false,
+    // },
+    // user_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: "user",
+    //         key: "id",
+    //     },
+    // },
+    // post_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: "post",
+    //         key: "id",
+    //     },
+    // },
 
 },
 {

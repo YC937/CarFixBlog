@@ -6,6 +6,7 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const multer = require('multer');
 const upload = multer({ dest: 'images/' });
+const Image = require('./models/images');
 const helpers = require('./utils/helpers');
 
 
@@ -31,9 +32,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-app.post('/profile', upload.single('image'), (req, res) => {
-    console.log(req.body);
-    console.log(req.file);
+app.post('/profile', upload.single('image'), async (req, res) => {
+  try {
+    console.log('here is req.body', req.body);
+    // console.log(req.file);
+
+    const image = await Image.create(req.file);
+
+    res.status(200).json(image);
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+
+});
+
+app.get('/images/:id', async( req, res) => {
+  try {
+    const dbImageData = await Image.findOne({
+      where: { id: req.params.id},
+    });
+    const imagePath = path.join(__dirname, 'images', dbImageData.filename);
+    console.log(imagePath);
+    res.sendFile(imagePath);
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
 })
 
 sequelize.sync({ force: false }).then(() => {
