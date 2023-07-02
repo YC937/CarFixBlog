@@ -13,6 +13,8 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+
 router.get('/upload', async (req, res) => {
     try {
         res.render('upload');
@@ -31,6 +33,15 @@ router.get('/login', async (req, res) => {
     }
 });
 
+router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('signup');
+  });
+
 router.get('/giphySearch', async (req, res) => {
     try {
         res.render('giphySearch');
@@ -39,7 +50,7 @@ router.get('/giphySearch', async (req, res) => {
     }
 });
 
-router.get('/giphySearch/:searchTerm', async (req, res) => {
+router.get('/homepage/:searchTerm', async (req, res) => {
     try {
         const response = await search(req.params.searchTerm);
         // console.log(JSON.stringify(response.data, null, 2));
@@ -50,13 +61,15 @@ router.get('/giphySearch/:searchTerm', async (req, res) => {
             url: imageItem.images.fixed_height.url
         }));
         console.log(giphyData);
-        res.render('giphySearch', {
+        res.render('homepage', {
             giphyData
         });
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
+
 
 
 module.exports = router;
