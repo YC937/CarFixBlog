@@ -5,7 +5,8 @@ const session = require('express-session');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const multer = require('multer');
-const upload = multer({ dest: 'images/' })
+const upload = multer({ dest: 'images/' });
+const helpers = require('./utils/helpers');
 
 
 const app = express();
@@ -19,7 +20,7 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
