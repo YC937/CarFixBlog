@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const { search } = require('../utils/giphy-api');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try { 
@@ -23,7 +24,7 @@ router.get('/', async (req, res) => {
         });
 
         const posts = dbPostData.map(post => post.get({ plain: true}));
-        res.render('homepage', { posts });
+        res.render('user-dash', { posts});
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -31,7 +32,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/post/:id', async (req, res) => {
+router.get('/edit/:id', async (req, res) => {
     try { 
         const dbPostData = await Post.findOne({
             where: { id: req.params,id },
@@ -53,7 +54,7 @@ router.get('/post/:id', async (req, res) => {
         });
 
         const posts = dbPostData.get({ plain: true});
-        res.render('single-post', { posts });
+        res.render('edit-post', { posts});
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -61,61 +62,9 @@ router.get('/post/:id', async (req, res) => {
 });
 
 
-
-router.get('/upload', async (req, res) => {
-    try {
-        res.render('upload');
-    } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
-    }
+router.get('/new', (req, res) => {
+    res.render('new-post');
 });
-
-router.get('/login', async (req, res) => {
-    try {
-        res.render('login');
-    } catch (err) {
-        console.error(err);
-        res.status(500).json(err);
-    }
-});
-
-router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-  
-    res.render('signup');
-  });
-
-router.get('/giphySearch', async (req, res) => {
-    try {
-        res.render('giphySearch');
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.get('/homepage/:searchTerm', async (req, res) => {
-    try {
-        const response = await search(req.params.searchTerm);
-        // console.log(JSON.stringify(response.data, null, 2));
-        // console.log(response.data.data);
-        let giphyData = response.data.data;
-        giphyData = giphyData.map(imageItem => ({
-            alt: imageItem.title,
-            url: imageItem.images.fixed_height.url
-        }));
-        console.log(giphyData);
-        res.render('homepage', {
-            giphyData
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 
 
 
