@@ -1,30 +1,35 @@
-async function signupFormHandler(event) {
-    event.preventDefault();
-  
+// console.log('signup');
 
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-    const twitter = document.querySelector('#twitter-signup').value.trim();
-    const github = document.querySelector('#github-signup').value.trim();
-  
-    if (username && email && password) {
+
+async function signupFormHandler(event) {
+  event.preventDefault();
+
+  console.log('signup');
+
+  const username = document.querySelector('#username-signup').value.trim();
+  const email = document.querySelector('#email-signup').value.trim();
+  const password = document.querySelector('#password-signup').value.trim();
+
+  if (username && email && password) {
       const response = await fetch('/api/users', {
-        method: 'post',
-        body: JSON.stringify({
-          email,
-          password
-        }),
-        headers: { 'Content-Type': 'application/json' }
+          method: 'POST',
+          body: JSON.stringify({
+              username,
+              email,
+              password
+          }),
+          headers: { 'Content-Type': 'application/json' }
       });
-  
-      // check the response status
       if (response.ok) {
-        console.log('success');
-        document.location.replace('/dashboard');
+          console.log('success');
+
+
+          document.location.replace('/homepage');
+
       } else {
-        alert(response.statusText);
+          alert(response.statusText);
       }
-    }
+  }
 }
-  
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
+document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);

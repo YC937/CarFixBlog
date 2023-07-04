@@ -8,6 +8,7 @@ const multer = require('multer');
 const upload = multer({ dest: 'images/' });
 const Image = require('./models/images');
 const helpers = require('./utils/helpers');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 const app = express();
@@ -15,8 +16,13 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
   secret: 'Super secret secret',
+  cookie: {},
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+
 };
 
 app.use(session(sess));
