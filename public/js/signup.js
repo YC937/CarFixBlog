@@ -24,7 +24,7 @@ const signupFormHandler =  async (event) => {
           console.log('success');
 
 
-          document.location.replace('/homepage');
+          document.location.replace('/userdash');
 
       } else {
           alert(response.statusText);
