@@ -1,8 +1,8 @@
 <section class="single-post-container">
-{{> post-info post}}
+{{> post-info posts}}
 
-{{!-- {{#if loggedIn}} --}}
-{{!-- <div class="comment-container">
+{{#if loggedIn}}
+<div class="comment-container">
     <h3 class="card-header"></h3>
     <form class="card-body comment-form" id="comment-form">
     <div class="form-row">
@@ -11,13 +11,13 @@
     </div>
         <button type="submit" class="btn">Submit</button>
     </form>
-</div> --}}
-{{!-- {{/if}} --}}
+</div> 
+{{/if}}
 
-{{!-- {{> comments post.comments}} --}}
+{{> comments post.comments}}
 
 </section>
 
-{{!-- {{#if loggedIn}} --}}
-{{!-- <script src="/js/comment.js"></script> --}}
-{{!-- {{/if}} --}}
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
+{{/if}}

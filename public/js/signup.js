@@ -1,7 +1,7 @@
 // console.log('signup');
 
 
-async function signupFormHandler(event) {
+const signupFormHandler =  async (event) => {
   event.preventDefault();
 
   console.log('signup');

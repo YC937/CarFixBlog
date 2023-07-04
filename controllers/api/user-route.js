@@ -73,18 +73,20 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const dbUserData = await User.findOne({
-            where: {username: req.body.username}
+            where: {
+                username: req.body.username
+            }
         });
 
         if(!dbUserData) {
-            res.status(404).json({message: 'Username or password is not correct.'});
+            res.status(404).json({message: 'Username is not correct.'});
             return;
         }
 
         const validPassword = await dbUserData.checkPassword(req.body.password);
 
         if(!validPassword) {
-            res.status(404).json({message: 'Username or password is not correct.'});
+            res.status(404).json({message: 'Password is not correct.'});
             return;
         }
 
@@ -92,10 +94,11 @@ router.post('/login', async (req, res) => {
             req.session.loggedIn = true;
             req.session.username = dbUserData.username;
             req.session.user_id = dbUserData.id;
-            res.status(200).json({user: dbUserData, message: 'You are logged in.'});
+            res.status(200).json({message: 'You are logged in.'});
         }) 
     } catch(err) {
         res.status(500).json(err);
+        console.log(err);
     }
 });
 

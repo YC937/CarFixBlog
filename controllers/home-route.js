@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const sequelize = require('../config/connection');
+// const sequelize = require('../config/connection');
 const { search } = require('../utils/giphy-api');
 
 router.get('/', async (req, res) => {
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
         });
 
         const posts = dbPostData.map(post => post.get({ plain: true}));
-        res.render('homepage', { posts });
+        res.render('homepage', { posts, loggedIn: req.session.loggedIn});
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try { 
         const dbPostData = await Post.findOne({
-            where: { id: req.params.id },
+            where: { id: req.params.id},
             attributes: ['id', 'place', 'description', 'created_at'],
             include: [
                 {
@@ -54,7 +54,8 @@ router.get('/post/:id', async (req, res) => {
         });
 
         const posts = dbPostData.get({ plain: true});
-        res.render('single-post', { posts });
+        console.log(posts);
+        res.render('single-post', { posts, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);

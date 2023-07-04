@@ -1,9 +1,8 @@
-<div class="container row">
-    <div class="card-header dashboard-post">
-       <h4 class="card-title post-title"><a class="link" href="/post/{{id}}">{{place}}</a></h4>
-        <div class="card-body post-body">
-        <p class="card-body post-content">{{description}}</p>
-        <p class="card-text post-author">Posted by <span class="post-username">{{user.username}}</span> on {{format_date created_at}}</p>
-        </div>
-    </div>
+<div class="card" style="width: 18rem;">
+  {{!-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+  <div class="card-body">
+    <h5 class="card-title"><a href="/post/{{id}}" class="btn btn-primary">{{place}}</a></h5>
+    <p class="card-text">{{description}}</p>
+     <p class="card-text">Posted by <span class="post-username">{{user.username}}</span> on {{format_date created_at}}</p>
+  </div>
 </div>
