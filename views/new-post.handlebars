@@ -11,10 +11,15 @@
         <label class="form-label" for="description">Description</label>
         <input id="description" name="description" class="form-input form-control" />
     </div>  
+    <div>
+         {{> upload}}
+    </div>
     <button type="submit" class="btn">Create</button>
 </form>
 
 </section>
 
-
+  {{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 <script src="/js/add-post.js"></script>

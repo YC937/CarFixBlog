@@ -1,10 +1,10 @@
 async function editFormHandler(event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="place"]').value.trim();
-    const content = document.querySelector('input[name="description"]').value.trim();
-    console.log(title);
-    console.log(content);
+    const place = document.querySelector('input[name="place"]').value.trim();
+    const description = document.querySelector('input[name="description"]').value.trim();
+    console.log(place);
+    console.log(description);
 
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
@@ -14,8 +14,8 @@ async function editFormHandler(event) {
         method: 'PUT',
         body: JSON.stringify({
           post_id: id,
-          title,
-          content
+          place,
+          description
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -23,11 +23,11 @@ async function editFormHandler(event) {
       });
       
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/userdash/');
       } else {
         alert(response.statusText);
       }
 
 }
 
-document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+document.querySelector('#edit-post-form').addEventListener('submit', editFormHandler);
