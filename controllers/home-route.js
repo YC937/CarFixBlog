@@ -107,8 +107,9 @@ router.get('/homepage/:searchTerm', async (req, res) => {
             url: imageItem.images.fixed_height.url
         }));
         console.log(giphyData);
-        res.render('homepage', {
-            giphyData
+        res.render('giphy', {
+            giphyData,
+            loggedIn: req.session.loggedIn
         });
     } catch (err) {
         res.status(500).json(err);
