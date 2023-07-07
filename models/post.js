@@ -11,11 +11,11 @@ Post.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        place: {
+        model: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        description: {
+        issue: {
             type: DataTypes.STRING,
             allowNull: false,
         },
