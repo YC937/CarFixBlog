@@ -7,7 +7,7 @@ router.get('/', withAuth, async (req, res) => {
     try { 
         const dbPostData = await Post.findAll({
             where: { user_id: req.session.user_id},
-            attributes: ['id', 'place', 'description', 'created_at'],
+            attributes: ['id', 'model', 'issue', 'created_at'],
             include: [
                 {
                     model: Comment,
@@ -37,7 +37,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     try { 
         const dbPostData = await Post.findOne({
             where: { id: req.params.id },
-            attributes: ['id', 'place', 'description', 'created_at'],
+            attributes: ['id', 'model', 'issue', 'created_at'],
             include: [
                 {
                     model: Comment,
@@ -65,39 +65,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 router.get('/new', (req, res) => {
     res.render('new-post');
 });
-
-
-// router.get('/new', withAuth, async (req, res) => {
-//     try {
-//         const dbPostData = await Post.findAll({
-//             where: { user_id: req.params.user_id },
-//             attributes: [
-//                 'id',
-//                 'title',
-//                 'created_at',
-//                 'post_content'
-//               ],
-//               include: [
-//                 {
-//                   model: Comment,
-//                   attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-//                   include: {
-//                     model: User,
-//                     attributes: ['username', 'twitter', 'github']
-//                   }
-//                 },
-//                 {
-//                   model: User,
-//                   attributes: ['username', 'twitter', 'github']
-//                 }
-//               ]
-//         });
-//         const posts = dbPostData.map(post => post.get({ plain: true }));
-//         res.render('new-post', { posts, loggedIn: true });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
 
 
