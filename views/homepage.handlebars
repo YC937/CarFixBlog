@@ -1,28 +1,42 @@
  <div class="hero bg-primary text-white text-center py-5">
     <div class="container">
-      <h1>Welcome to the CarFix Blog</h1>
-      <p></p>
+        <h1>Welcome to the CarFix Blog</h1>
+        <p></p>
     </div>
-  </div>
+</div>
 
-{{#each posts as |post|}}
-<article class="post">
-{{> post-info post }}
-</article>
-{{else}}
-<h6 class="pb-4 has-text-centered is-italic">there are currently no posts</h6>
-{{/each}}
+<style>
+    .post-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .post {
+        margin-bottom: 1em;
+    }
+</style>
 
-  <div>
+<div class="post-container">
+    {{#each posts as |post|}}
+    <article class="post">
+        {{> post-info post }}
+    </article>
+    {{else}}
+    <h6 class="pb-4 has-text-centered is-italic">there are currently no posts</h6>
+    {{/each}}
+</div>
+
+<div>
     {{>giphySearch}}
-  </div>
+</div>
 
-  <footer class="footer mt-auto py-3 bg-dark">
-  <div class="container text-center text-white">
-    <span>&copy; 2023 CarFix Blog. All rights reserved.</span>
-  </div>
+<footer class="footer mt-auto py-3 bg-dark">
+    <div class="container text-center text-white">
+        <span>&copy; 2023 CarFix Blog. All rights reserved.</span>
+    </div>
 
-  {{#if loggedIn}}
-<script src="/js/logout.js"></script>
-{{/if}}
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </footer>
