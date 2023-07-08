@@ -6,7 +6,7 @@ const { search } = require('../utils/giphy-api');
 router.get('/', async (req, res) => {
     try { 
         const dbPostData = await Post.findAll({
-            attributes: ['id', 'place', 'description', 'created_at'],
+            attributes: ['id', 'model', 'issue', 'created_at'],
             include: [
                 {
                     model: Comment,
@@ -36,7 +36,7 @@ router.get('/post/:id', async (req, res) => {
     try { 
         const dbPostData = await Post.findOne({
             where: { id: req.params.id},
-            attributes: ['id', 'place', 'description', 'created_at'],
+            attributes: ['id', 'model', 'issue', 'created_at'],
             include: [
                 {
                     model: Comment,

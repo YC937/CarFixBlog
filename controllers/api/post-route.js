@@ -5,8 +5,8 @@ const withAuth = require('../../utils/auth')
 router.post('/', withAuth, async (req, res) => {
     try{
         const newPost = await Post.create({
-            place: req.body.place,
-            description: req.body.description,
+            model: req.body.model,
+            issue: req.body.issue,
             user_id: req.session.user_id,
         });
         
@@ -21,8 +21,8 @@ router.put('/:id', withAuth, async (req, res) => {
     try {
         const dbPostData = await Post.update(
             {
-                place: req.body.place,
-                description: req.body.description,
+                model: req.body.model,
+                issue: req.body.issue,
             },
             {
                 where: { id: req.params.id }
