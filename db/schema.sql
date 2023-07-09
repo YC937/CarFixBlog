@@ -1,8 +1,8 @@
 
-DROP DATABASE IF EXISTS travelBlog_db;
+DROP DATABASE IF EXISTS travelblog_db;
 
-CREATE DATABASE travelBlog_db;
+CREATE DATABASE travelblog_db;
 
 
-USE travelBlog_db;
+USE travelblog_db;
 
