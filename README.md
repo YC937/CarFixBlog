@@ -1,29 +1,23 @@
-# Travel Blog
+# CarFix Blog
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is Coding Bootcamp Project 2 by Group 8.
+## Description
 
-It is an online Blog to store my photos and texts. 
+### Summary:
 
-## Concept
-
-🎯 Fun User Interactive website.
-🎯 We LIKE travelling and blogging!
-
-As a traveler I WANT to store photos and what I think about the places I have visited.
-
-It’s DONE when I create an account and upload my texts/photos to my travel blog website.
+Do you have an interest in cars? Having issues with your current vehicle? This is the site for you! Join others in posting about you personal car issues ranging from any warning light to something just not sounding right.
 
 ## User Story
 
 GIVEN I am on the website.
-WHEN I click List of blogs or Post a new blog.
+WHEN I click List of posts or make a new post.
 THEN the website will tell me to login or sign up first.
 
-WHEN  I login or sign up after typing the username and password.
-THEN I am presented with the List of blogs I posted before.
+WHEN I login or sign up after typing the username and password.
+THEN I am presented with a list of previous posts or the opportunity to create a new one.
 
-WHEN I click the Post a new blog button.
-THEN I am presented with a page where I can create a new post by texting and uploading pictures. 
+WHEN I click the create a new post button.
+THEN I am presented with a page where I can create a new post by inputting the type of car I have and what issues I'm facing. 
 
 WHEN I click the “create” button.
 THEN It will save to the list of posts.
@@ -34,42 +28,51 @@ THEN I am presented with the page for me to update or delete that post.
 WHEN I click the “Sign out” button.
 THEN I am presented with the Home page.
 
-# Requirements
+## Table of Contents
+[Concept](#concept)
 
-* Use Node.js and Express.js to create a RESTful API.
+[Installation](#installation)
 
-* Use Handlebars.js as the template engine.
+[Usage](#usage)
 
-* Use MySQL and the Sequelize ORM for the database.
+[License](#license)
 
-* Have both GET and POST routes for retrieving and adding new data.
+[Link to our Repository](#link-to-our-repository)
 
-* Use at least one new library, package, or technology that we haven't discussed.
 
-* Have a folder structure that meets the MVC paradigm.
 
-* Include authentication (express-session and cookies).
 
-* Protect API keys and sensitive information with environment variables.
 
-* Be deployed using Heroku (with data).
+## Concept
 
-* Have a polished UI.
+🎯 Fun User Interactive website.
 
-* Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+🎯 We LIKE cars and solving issues!
 
-# Link to our Repository
+As a car enthusiast or car owner I WANT to share issues I'm having with my vehicle and what type of car I own.
 
-https://github.com/YC937/TravelBlog 
+It’s DONE when I create an account and upload my issues about my vehicle to the website.
 
-### License
+## Installation
 
-MIT License
+This application requires the user to have Node.js and MySQL.
+Once you open this app, type into the intergrated terminal, `npm i`, to download all the required packages from the package.json.
+Then, type again into the intergrated terminal `npm run seed`, and finally either `npm start server`, `node server`, or `npx nodemon` to start the server and enter our site.
 
-Copyright (c) 2023 YMC
+## Usage
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Our website is very simple and easy to use, you only need to create an account to use it!
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+- After landing on our page, you can choose to Login/Signup on the top left of the page, or type into the searchbar to find a random giffy of your favorite car. 
+- Once logged in or signed up, you can create a post that displays what car you have and the issues that you're having. 
+- You can edit or delete posts from the user dash, or once again search for a giffy of your favorite vehicle!
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## License  
+
+  This project utilized the [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT). 
+
+  For more information see link: (https://opensource.org/licenses/MIT)
+
+  ## Link to our Repository
+
+[Repository Link!](https://github.com/YC937/TravelBlog) 
