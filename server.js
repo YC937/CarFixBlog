@@ -67,6 +67,6 @@ app.get('/images/:id', async( req, res) => {
   }
 })
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening: http://127.0.0.1:' + PORT));
 });
