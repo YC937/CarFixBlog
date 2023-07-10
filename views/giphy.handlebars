@@ -1,8 +1,8 @@
   
-  <section>
+  <section class="bg-primary">
   <form id="search-form">
     <div class="input-group">
-        <div class="form-outline">
+        <div class="form-outline container col-4">
             <label class="form-label" for="search"> Feel free to search other giphys! </label>
             <input type="text" id="search" class="form-control" />
         </div>
@@ -11,9 +11,9 @@
         </button>
     </div>
   </form>
-  <ul>
+  <ul >
     {{#each giphyData}}
-    <li>
+    <li class="container col-4">
         <img src="{{url}}" alt="{{alt}}" />
     </li>
     {{/each}}
