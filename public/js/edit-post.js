@@ -1,10 +1,10 @@
 async function editFormHandler(event) {
     event.preventDefault();
 
-    const place = document.querySelector('input[name="place"]').value.trim();
-    const description = document.querySelector('input[name="description"]').value.trim();
-    console.log(place);
-    console.log(description);
+    const model = document.querySelector('input[name="model"]').value.trim();
+    const issue = document.querySelector('input[name="issue"]').value.trim();
+    console.log(model);
+    console.log(issue);
 
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
@@ -14,8 +14,8 @@ async function editFormHandler(event) {
         method: 'PUT',
         body: JSON.stringify({
           post_id: id,
-          place,
-          description
+          model,
+          issue
         }),
         headers: {
           'Content-Type': 'application/json'
